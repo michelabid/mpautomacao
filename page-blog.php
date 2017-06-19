@@ -14,7 +14,7 @@
 
   <div class="left">
 
-  	<? query_posts('category_name=Blog da MP Automação'); while(have_posts()): the_post(); ?>
+  	<? query_posts('category_name=Blog da MP Automação, Marketing & Vendas'); while(have_posts()): the_post(); ?>
     <a href="<? the_permalink(); ?>" class="item">
       <div class="center">
         <div class="cover"><? the_post_thumbnail(); ?></div>
