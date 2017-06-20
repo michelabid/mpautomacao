@@ -62,7 +62,19 @@
 
 						}
 
-						echo "<span>". strip_tags($product->get_categories(sizeof(get_the_terms($post->ID, 'product_cat'))))."</span>";
+						// echo "<span>". strip_tags($product->get_categories(sizeof(get_the_terms($post->ID, 'product_cat'))))."</span>";
+
+						$category = get_the_category(); 
+						$parent = get_the_terms( $post->ID, 'product_cat' );
+						$qtd = sizeof($parent);
+
+						if($qtd==1){
+							echo "<span>".$parent[0]->name ."</span>";
+						} if($qtd==2){
+							echo "<span>".$parent[0]->name ." / ". $parent[1]->name."</span>";
+						} if($qtd==3){
+							echo "<span>".$parent[0]->name ." / ". $parent[1]->name ." / ". $parent[2]->name . "</span>";
+						}
 
 					?>
 
