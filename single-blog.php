@@ -13,26 +13,24 @@
 <div class="col-center">
 
   <div class="left">
-
-  	<? query_posts('category_name=Blog da MP Automação'); while(have_posts()): the_post(); ?>
-    <a href="<? the_permalink(); ?>" class="item">
-      <div class="center">
-        <div class="cover"><? the_post_thumbnail(); ?></div>
-        <h1><? the_title(); ?></h1>
-        <span>
-        <?
-			foreach((get_the_category()) as $childcat) {
-			if (cat_is_ancestor_of(3, $childcat)) {
-			 echo $childcat->cat_name;
-			}}
-		?>
-        </span>
-        <div class="text">
-        <? the_excerpt(); ?>
-        </div>
-      </div>
-    </a>
-    <? endwhile; wp_reset_query(); ?>
+	  
+	<? while(have_posts()): the_post(); ?>  	
+	<div class="item">
+		<div class="center">
+			<div class="cover"><? the_post_thumbnail(); ?></div>
+			<h1><? the_title(); ?></h1>
+			<span>
+				<? foreach((get_the_category()) as $childcat) {
+					if (cat_is_ancestor_of(3, $childcat)) {
+						echo $childcat->cat_name;
+				}} ?>
+			</span>
+			<div class="text">
+				<? the_content(); ?>
+			</div>
+		</div>
+	</div>
+	<? endwhile; ?>
 
   </div>
 
@@ -42,7 +40,7 @@
       <h3>Categorias</h3>
       <div class="icon" href=""></div>
     </div>
-     <ul>
+    <ul>
 		<?
 			$args = array('child_of' => 3);
 			$categories = get_categories( $args );
