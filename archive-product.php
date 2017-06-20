@@ -16,55 +16,60 @@
 <div class="col-1 internal-content pg-produtos">
 <div class="col-center">
 
-	<div class="category-menu">
-		<div class="mobile">
-			<h3>Categorias</h3>
-			<div class="icon" href=""></div>
-		</div>
-		<ul>
-			<? wp_list_categories('taxonomy=product_cat&pad_counts=1&title_li='); ?>
-		</ul>
-	</div>
+	<!--  -->
 
 	<!-- PRATELEIRA -->
 	<div class="products">
 
 		<div class="category-desc">
-			<?php echo category_description(); ?>
+			<p><?php echo get_field("descricao_da_pagina", 9); ?></p>
 		</div>
 
 	    <div class="overflow">
-			<?
-				$parent = get_the_terms($post->ID,'product_cat');
-				$tagdapagina = $parent[0]->slug;
-				
-				$args = array(
-				    // 'orderby' 		=> 'featured',
-				    // 'order'			=> 'desc',
-				    'product_cat'	=> $tagdapagina
-				);
-				
-				$featured_query = new WP_Query( $args );
-			?>
-		    
-			<? 
-//              while($featured_query -> have_posts()): $featured_query->the_post();
-              while(have_posts()): the_post();
-            ?>
-	          <a href="<? the_permalink(); ?>" class='item'>
-	              <div class="img"><? the_post_thumbnail(); ?></div>
-	              <h3>
-	                <? the_title(); ?><br>
-					<?
-						$category = get_the_category(); 
-						$parent = get_the_terms( $post->ID, 'product_cat' );
-						echo "<span>".$parent[0]->name ." / ". $parent[1]->name."</span>";
-					?>
-	              </h3>
-	          </a>
-          <? endwhile; ?>
-          <br class="br" />
-          <? wp_paginate(); ?>
+
+
+
+
+	    	<?php
+                  $index = 0;
+                  $taxonomy = 'product_cat';
+                  $args = array(
+                      // 'orderby'           => 'name', 
+                      // 'order'             => 'ASC',
+                      'hide_empty'        => true, 
+                      'parent'            => 0
+                  ); 
+                  $tax_terms = get_terms($taxonomy, $args); ?>
+                  <?php foreach ($tax_terms as $tax_term): $index++; ?>
+                  
+
+                    <a class="item" href="<?php echo esc_attr(get_term_link($tax_term, $taxonomy)) ?>" title="<?php echo sprintf( __( "Ver todos os produtos em '%s'" ), $tax_term->name ); ?>">
+
+
+
+                      <div class="icon">
+                      	
+                      <?php
+                      	$cat_thumb_id = get_woocommerce_term_meta( $tax_term->term_id, 'thumbnail_id', true );
+                      	$cat_thumb_url = wp_get_attachment_thumb_url( $cat_thumb_id, 'full' );
+                      	?>
+
+        				<? if(!empty($cat_thumb_url)): ?>
+                        	<img src="<?php echo $cat_thumb_url; ?>" alt="<?php echo $tax_term->name; ?>" />
+                        <? endif; ?>
+
+                      </div>
+
+
+
+                      <div class="content">
+                        <strong><?php echo $tax_term->name; ?></strong>
+                        <p><?php echo $tax_term->description; ?><p>
+                      </div>
+                    </a>
+
+                <?php endforeach; ?>
+
           
       </div>
 
@@ -72,5 +77,12 @@
 
 </div>
 </div>
+
+<style type="text/css">
+	.pg-produtos .products{
+		width: 100%;
+	}
+
+</style>
 
 <? get_footer(); ?>
