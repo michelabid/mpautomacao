@@ -7,7 +7,7 @@
 <!-- Internal Header ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <div class="col-1 internal-header">
 <div class="col-center">
-	<h1>Produtos 2</h1>
+	<h1>Produtos 3</h1>
 </div>
 </div>
 
