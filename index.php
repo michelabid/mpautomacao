@@ -81,7 +81,17 @@
 					<?
 						$category = get_the_category(); 
 						$parent = get_the_terms( $post->ID, 'product_cat' );
-						echo "<span>".$parent[0]->name ." / ". $parent[1]->name."</span>";
+						// echo "<span>".$parent[0]->name ." / ". $parent[1]->name."</span>";
+
+            $qtd = sizeof($parent);
+
+            if($qtd==1){
+              echo "<span>".$parent[0]->name ."</span>";
+            } if($qtd==2){
+              echo "<span>".$parent[0]->name ." / ". $parent[1]->name."</span>";
+            } if($qtd==3){
+              echo "<span>".$parent[0]->name ." / ". $parent[1]->name ." / ". $parent[2]->name . "</span>";
+            }
 					?>
 	              </h3>
 	              <span class="price"><?= $product->get_price_html(); ?></span>

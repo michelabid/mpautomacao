@@ -106,6 +106,38 @@ include'includes/functions.php';
 
 		form .wpcf7-response-output { float: left; position: relative;width: 100%; }
 
+		.top-menu li ul{ top: 22px; }
+
+		.top-menu li.cat-item a{ font-size: 13px; padding: 8px 0 !important; font-weight: 500 !important; letter-spacing: 0.5px;}
+
+		.products .overflow a.item{
+			padding: 10px;
+		}
+
+		.internal-header{
+			height: 70px !important;
+		}
+		@media (max-width: 850px){
+		.internal-header{
+			height: 80px !important;
+		}
+	}
+		.internal-header a{
+			text-decoration: none;
+			font-size: 15px;
+		    color: #747474;
+		    font-family: 'Open Sans',sans-serif;
+		    font-weight: 300;
+		    line-height: 26px;
+		    letter-spacing: .4px;
+		}
+		.internal-header a:hover{
+			color: #000000;
+		}
+
+		.pg-produtos .category-menu {
+		    padding: 35px 0 20px 0;
+		}
 	</style>
 
 
@@ -176,8 +208,7 @@ include'includes/functions.php';
 
 				<li>
 
-					<!-- <a href="<? bloginfo('url') ?>/produtos/">Produtos</a> -->
-					<a href="http://mpautomacao.com/produtos/">Produtos</a>
+					<a href="javascript:void(0);">Produtos</a>
 
 					<ul>
 
@@ -283,8 +314,7 @@ include'includes/functions.php';
 
 		<li><a href="<? bloginfo('url') ?>/empresa/">Empresa</a></li>
 
-		<!-- <li><a href="<? bloginfo('url') ?>/produtos/">Produtos</a></li> -->
-		<li><a href="http://mpautomacao.com/produtos/">Produtos</a></li>
+		<li><a href="javascript:void(0);">Produtos</a></li>
 
 		<li><a href="<? bloginfo('url') ?>/blog/">Blog</a></li>
 

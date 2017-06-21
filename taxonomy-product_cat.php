@@ -7,8 +7,7 @@
 <!-- Internal Header ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <div class="col-1 internal-header">
 <div class="col-center">
-	<h1 style="float:left; position: relative;">Produtos</h1>
-	<p  style="float: right;position: relative;">Produtos / <?php echo single_cat_title(); ?></p>
+	<p  style="float: left;position: relative;"><a href="http://mpautomacao.com/produtos/">Produtos</a> / <?php echo single_cat_title(); ?></p>
 </div>
 </div>
 
@@ -97,18 +96,13 @@
 		display: block !important;
 	}
 	.internal-header p{
-		line-height: 109px;
+		line-height: 70px;
 	}
+	
 	@media (max-width: 850px){
 		.internal-header p{
 			line-height: 80px !important;
-		}
-	}
-	@media (max-width: 700px){
-    .internal-header p{
-      display: none;
-    }
-  }
+		}	}
 </style>
 
 <? get_footer(); ?>

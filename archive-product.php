@@ -19,7 +19,7 @@
 	<!--  -->
 
 	<!-- PRATELEIRA -->
-	<div class="products">
+	<div class="products c4">
 
 		<div class="category-desc">
 			<p><?php echo get_field("descricao_da_pagina", 9); ?></p>
@@ -65,9 +65,9 @@
 
 
                       <div class="content">
-                        <strong><?php echo $tax_term->name; ?></strong>
+                        <h3><?php echo $tax_term->name; ?></h3>
                         <? if(!empty($tax_term->description)): ?>
-                          <p><?php echo substr($tax_term->description, 0, 150) . "..."; ?><p>
+                          <span><?php echo substr($tax_term->description, 0, 150) . "..."; ?></span>
                         <? endif; ?>
                       </div>
                     </a>
@@ -87,9 +87,16 @@
 		width: 100%;
 	}
 	.products .item{
-		height: 300px;
+    height: 340px;
 	}
+  .content span{
+    color: #bdbdbd !important;
+  }
+  .products .icon img{ width: 100%; }
 
+  .products .item h3 {
+    margin-bottom: 10px;
+}
 </style>
 
 <? get_footer(); ?>

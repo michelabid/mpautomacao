@@ -9,7 +9,6 @@
 <!-- Internal Header ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <div class="col-1 internal-header">
 <div class="col-center">
-	<strong style="float:left; position: relative;">Produtos</strong>
 
   <?
 
@@ -29,7 +28,7 @@
 
     ?>
 
-  <p  style="float: right;position: relative;">Produtos / <? echo $product->get_categories(sizeof(get_the_terms($post->ID, 'product_cat'))); ?> / <? the_title(); ?></p>
+  <p  style="float: left;position: relative;"><a href="http://mpautomacao.com/produtos/">Produtos</a> / <? echo $product->get_categories(sizeof(get_the_terms($post->ID, 'product_cat'))); ?> / <? the_title(); ?></p>
 </div>
 </div>
 
@@ -171,19 +170,8 @@
 </div>
 
 <style type="text/css">
-
   .internal-header p{
-    line-height: 109px;
-  }
-  @media (max-width: 850px){
-    .internal-header p{
-      line-height: 80px !important;
-    }
-  }
-  @media (max-width: 700px){
-    .internal-header p{
-      display: none;
-    }
+    line-height: 70px;
   }
 </style>
 
