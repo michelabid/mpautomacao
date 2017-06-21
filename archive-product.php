@@ -49,13 +49,15 @@
 
                       <div class="icon">
                       	
-                      <?php
+                    <?php
                       	$cat_thumb_id = get_woocommerce_term_meta( $tax_term->term_id, 'thumbnail_id', true );
-                      	$cat_thumb_url = wp_get_attachment_thumb_url( $cat_thumb_id, 'full' );
-                      	?>
+                      	$cat_thumb_url = wp_get_attachment_image_src( $cat_thumb_id, 'medium_large' );
+
+
+                    ?>
 
         				<? if(!empty($cat_thumb_url)): ?>
-                        	<img src="<?php echo $cat_thumb_url; ?>" alt="<?php echo $tax_term->name; ?>" />
+                        	<img src="<?php echo $cat_thumb_url[0]; ?>" alt="<?php echo $tax_term->name; ?>" />
                         <? endif; ?>
 
                       </div>
@@ -81,6 +83,9 @@
 <style type="text/css">
 	.pg-produtos .products{
 		width: 100%;
+	}
+	.products .item{
+		height: 300px;
 	}
 
 </style>
