@@ -104,6 +104,11 @@
 			line-height: 80px !important;
 		}
 	}
+	@media (max-width: 700px){
+    .internal-header p{
+      display: none;
+    }
+  }
 </style>
 
 <? get_footer(); ?>
