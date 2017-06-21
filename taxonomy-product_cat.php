@@ -7,7 +7,8 @@
 <!-- Internal Header ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <div class="col-1 internal-header">
 <div class="col-center">
-	<h1>Produtos 3</h1>
+	<h1 style="float:left; position: relative;">Produtos</h1>
+	<p  style="float: right;position: relative;">Produtos / <?php echo single_cat_title(); ?></p>
 </div>
 </div>
 
@@ -30,6 +31,7 @@
 	<div class="products">
 
 		<div class="category-desc">
+			<h3><?php echo single_cat_title(); ?></h3>
 			<?php echo category_description(); ?>
 		</div>
 
@@ -58,7 +60,18 @@
 					<?
 						$category = get_the_category(); 
 						$parent = get_the_terms( $post->ID, 'product_cat' );
-						echo "<span>".$parent[0]->name ." / ". $parent[1]->name."</span>";
+						// echo "<span>".$parent[0]->name ." / ". $parent[1]->name."</span>";
+						$qtd = sizeof($parent);
+
+						if($qtd==1){
+							echo "<span>".$parent[0]->name ."</span>";
+						} if($qtd==2){
+							echo "<span>".$parent[0]->name ." / ". $parent[1]->name."</span>";
+						} if($qtd==3){
+							echo "<span>".$parent[0]->name ." / ". $parent[1]->name ." / ". $parent[2]->name . "</span>";
+						}
+
+
 					?>
 	              </h3>
 	          </a>
@@ -72,5 +85,25 @@
 
 </div>
 </div>
+
+<style type="text/css">
+	.category-menu .children{
+		display: none !important; 
+	}
+	.category-menu .current-cat .children{
+		display: block !important;
+	}
+	.category-menu li.cat-item.current-cat-parent.current-cat-ancestor .children{
+		display: block !important;
+	}
+	.internal-header p{
+		line-height: 109px;
+	}
+	@media (max-width: 850px){
+		.internal-header p{
+			line-height: 80px !important;
+		}
+	}
+</style>
 
 <? get_footer(); ?>
