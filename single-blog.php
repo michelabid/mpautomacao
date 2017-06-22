@@ -54,4 +54,10 @@
 </div>
 </div>
 
+<style type="text/css">
+	.blog .item .cover img{
+		height: auto;
+	}
+</style>
+
 <? get_footer(); ?>

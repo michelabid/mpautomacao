@@ -24,11 +24,29 @@
 
       }
 
-      
+      $category = get_the_category(); 
+            $parent = get_the_terms( $post->ID, 'product_cat' );
+            // echo "<span>".$parent[0]->name ." / ". $parent[1]->name."</span>";
+            $qtd = sizeof($parent);
+
+            
 
     ?>
 
-  <p  style="float: left;position: relative;"><a href="http://mpautomacao.com/produtos/">Produtos</a> / <? echo $product->get_categories(sizeof(get_the_terms($post->ID, 'product_cat'))); ?> / <? the_title(); ?></p>
+  <p  style="float: left;position: relative;"><a href="http://mpautomacao.com/produtos/">Produtos</a> / 
+
+    <? if($qtd==1)
+    {
+      echo "<a src=". $parent[0]->url .">".$parent[0]->name ."</a>"; ?> / <? the_title(); 
+    } 
+    if($qtd==2)
+    {
+      echo "<a src=". $parent[0]->url .">".$parent[0]->name ."</a> / <a src=". $parent[1]->url .">". $parent[1]->name."</a>"; ?> / <? the_title(); 
+    } 
+    ?> 
+  </p>
+
+
 </div>
 </div>
 

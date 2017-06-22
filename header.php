@@ -100,20 +100,21 @@ include'includes/functions.php';
 
 
 
-	<style type="text/css">
-
+<style type="text/css">
 		form span { float: left; position: relative; width: 100%; }
-
 		form .wpcf7-response-output { float: left; position: relative;width: 100%; }
-
-		.top-menu li ul{ top: 22px; }
-
+		.top-menu li ul{ 
+			top: 22px;
+		    border-radius: 15px;
+		    line-height: 13px;
+		    padding-left: 25px;
+		    padding-top: 15px;
+		    padding-bottom: 15px;
+		}
 		.top-menu li.cat-item a{ font-size: 13px; padding: 8px 0 !important; font-weight: 500 !important; letter-spacing: 0.5px;}
-
 		.products .overflow a.item{
 			padding: 10px;
 		}
-
 		.internal-header{
 			height: 70px !important;
 		}
@@ -134,7 +135,6 @@ include'includes/functions.php';
 		.internal-header a:hover{
 			color: #000000;
 		}
-
 		.pg-produtos .category-menu {
 		    padding: 35px 0 20px 0;
 		}
@@ -150,7 +150,7 @@ include'includes/functions.php';
 
 
 
-<body>
+<body <?php body_class(); ?>>
 
 
 
