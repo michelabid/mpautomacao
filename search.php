@@ -1,6 +1,6 @@
 <? get_header(); ?>
 
-
+<? $tag = $_GET['s']; ?>
 
 <!-- Internal Header ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
@@ -100,7 +100,11 @@
 
 </div>
 
-
+<style type="text/css">
+	.pg-produtos .products .item{
+		padding: 10px;
+	}
+</style>
 
 <? get_footer(); ?>
 

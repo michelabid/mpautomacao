@@ -67,7 +67,7 @@
                       <div class="content">
                         <h3><?php echo $tax_term->name; ?></h3>
                         <? if(!empty($tax_term->description)): ?>
-                          <span><?php echo substr($tax_term->description, 0, 150) . "..."; ?></span>
+                          <span><?php echo substr($tax_term->description, 0, 100) . "..."; ?></span>
                         <? endif; ?>
                       </div>
                     </a>
